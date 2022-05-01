@@ -71,5 +71,17 @@ const fillCards = (identity, accounts, cards) => {
   });
 
   const cards_card = document.getElementById("cards");
-  cards_card.innerText = cards;
+  cards.forEach((card) => {
+    const name_on_card = card.name_on_card;
+    const card_type = card.card_type;
+    const card_network = card.card_network;
+    const card_number = card.partial_card_number;
+
+    const cards_div = document.createElement("div");
+    cards_card.appendChild(cards_div);
+    cards_div.innerHTML = `<strong>Name on card:</strong> ${name_on_card}<br/>
+    <strong>Card type:</strong> ${card_type}<br/>
+    <strong>Card network:</strong> ${card_network}<br/>
+    <strong>Card number:</strong> **** **** **** ${card_number}<br/><br/>`;
+  });
 };
